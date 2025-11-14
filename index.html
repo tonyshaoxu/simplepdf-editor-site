@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Online PDF Editor (Powered by SimplePDF)</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      #editor {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    </style>
+
+    <!-- SimplePDF Embed SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@simplepdf/embeddable"></script>
+  </head>
+
+  <body>
+    <div id="editor"></div>
+
+    <script>
+      SimplePDFEmbed.init({
+        embedSelector: "#editor",
+        mode: "edit",   // 使用编辑模式
+        pdfUrl: "sample.pdf", // 你要编辑的 PDF 文件
+        // 你也可以改成网络 PDF 地址
+        // pdfUrl: "https://example.com/my.pdf"
+      });
+    </script>
+  </body>
+</html>
