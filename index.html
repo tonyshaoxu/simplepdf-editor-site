@@ -1,33 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>SimplePDF Editor</title>
-    <style>
-      html, body {
-        margin: 0;
-        height: 100%;
+<head>
+  <meta charset="UTF-8">
+  <title>SimplePDF Editor</title>
+  <style>
+    html, body { margin: 0; height: 100%; }
+    #editor { width: 100%; height: 100vh; }
+  </style>
+  <script src="https://unpkg.com/@simplepdf/web-embed-pdf" defer></script>
+</head>
+<body>
+  <div id="editor"></div>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      if (typeof SimplePDFEmbed === 'undefined') {
+        console.error('SimplePDFEmbed not found, available globals:', window.SimplePDF, window.SimplePDFEmbed);
+        return;
       }
-      #editor {
-        width: 100%;
-        height: 100vh;
-      }
-    </style>
-
-    <!-- 正确的 UMD CDN 地址 -->
-    <script src="https://cdn.jsdelivr.net/npm/@simplepdf/embeddable/dist/embeddable.min.js"></script>
-  </head>
-
-  <body>
-    <div id="editor"></div>
-
-    <script>
-      // 正确的 API 是 SimplePDF.Embed.init()
-      SimplePDF.Embed.init({
+      SimplePDFEmbed.init({
         embedSelector: "#editor",
         pdfUrl: "sample.pdf",
-        mode: "edit",
+        mode: "edit"
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
 </html>
