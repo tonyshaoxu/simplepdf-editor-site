@@ -1,28 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>SimplePDF Editor</title>
-  <style>
-    html, body { margin: 0; height: 100%; }
-    #editor { width: 100%; height: 100vh; }
-  </style>
+  <meta charset="UTF-8" />
+  <title>SimplePDF Embed Demo</title>
   <script src="https://unpkg.com/@simplepdf/web-embed-pdf" defer></script>
 </head>
 <body>
-  <div id="editor"></div>
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      if (typeof SimplePDFEmbed === 'undefined') {
-        console.error('SimplePDFEmbed not found, available globals:', window.SimplePDF, window.SimplePDFEmbed);
-        return;
-      }
-      SimplePDFEmbed.init({
-        embedSelector: "#editor",
-        pdfUrl: "sample.pdf",
-        mode: "edit"
-      });
-    });
-  </script>
+  <h1>Click the link to edit the PDF</h1>
+  <a href="sample.pdf" data-simplepdf-embed>Open PDF Editor</a>
 </body>
 </html>
